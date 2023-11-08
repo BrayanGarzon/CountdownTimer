@@ -3,37 +3,25 @@
 </script>
 
 <template>
-  <div class="greetings">
-    
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
-  </div>
+  <section>
+    <div class="container">
+
+    </div>
+  </section>
 </template>
 
 <style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
+section {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, hsla(237, 18%, 59%, 0.107), hsla(345, 95%, 68%, 0.129)), url('/src/images/pattern-hills.svg');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% auto;
 }
 
-h3 {
-  font-size: 1.2rem;
-}
 
-.greetings h1,
-.greetings h3 {
-  text-align: center;
-}
 
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
-}
+
+
 </style>

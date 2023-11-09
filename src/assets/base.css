@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Red+Hat+Text:wght@700&display=swap');
+
 :root{
   --color-background: hsl(235, 16%, 14%);
+  --color-background-cards: hsl(236, 21%, 26%);
+
+
+  --font-famly: 'Red Hat Text', sans-serif;
+  --font-weight: 700;
+
+  --color-text:hsl(0, 0%, 100%);
+  --color-text-second: hsl(345, 95%, 68%);
 }
 
 
@@ -10,8 +20,6 @@ body {
   margin: 0;
   background-color: var(--color-background);
   background-image: url('/src/images/bg-stars.svg');
-
-  
-
- 
+  font-family: var(--font-famly);
+  font-weight: 700;
 }

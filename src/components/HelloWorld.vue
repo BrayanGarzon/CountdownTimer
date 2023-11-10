@@ -72,7 +72,11 @@ export default {
           
         </div>
         
-        <div class="iconos"></div>
+        <div class="iconos">
+          <img src="/src/images/icon-facebook.svg" alt="">
+          <img src="/src/images/icon-pinterest.svg" alt="">
+          <img src="/src/images/icon-instagram.svg" alt="">
+        </div>
       </div>
     </div>
   </section>
@@ -107,6 +111,9 @@ section .container .containerTimer .texto{
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 200px;
+  background-color: aquamarine;
 }
 section .container .containerTimer .texto h2{
     margin: 0;
@@ -122,6 +129,9 @@ section .container .containerTimer .texto h2{
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  width: 100%;
+  height: 250px;
+  background-color: beige;
 }
 .counter .containerCards{
   display: flex;

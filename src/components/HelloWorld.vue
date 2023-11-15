@@ -4,8 +4,8 @@ export default {
     return {
       targetDate: new Date("2023-12-31 00:00:00"), // Cambia esta fecha a tu fecha objetivo
       cards: [
-        { value: 0, text: "DAYS", marginLeft: "10px" },
-        { value: 0, text: "HOURS", marginLeft: "15px" },
+        { value: 0, text: "DAYS", marginLeft: "30px" },
+        { value: 0, text: "HOURS", marginLeft: "px" },
         { value: 0, text: "MINUTES", marginLeft: "0px" },
         { value: 0, text: "SECONDS", marginLeft: "0px" },
       ],
@@ -57,16 +57,35 @@ export default {
         <div class="counter">
 
           <div class="containerCards">
-            <div class="card" v-for="(card, index) in cards" :key="index">
-              <div class="bottom">{{ card.value }}</div>
+
+            <div class="cardPadre">
+              <div class="card">
+                <div class="bottom">{{ cards[0].value }}</div>
+              </div>
+              <h5>DAYS</h5>
             </div>
-          </div>
-          
-          
-          <div class="texCards">
-            <div class="text-cards">
-              <div v-for="(card, index) in cards" :key="index" :style="{marginLeft: card.marginLeft }" class="text">{{ card.text }}</div>
+            
+            <div class="cardPadre">
+              <div class="card">
+                <div class="bottom">{{ cards[1].value }}</div>
+              </div>    
+              <h5>HOURS</h5>
             </div>
+
+            <div class="cardPadre">
+              <div class="card">
+                <div class="bottom">{{ cards[2].value }}</div>
+              </div>
+              <h5>MINUTES</h5>
+            </div>
+
+            <div class="cardPadre">
+              <div class="card">
+                <div class="bottom">{{ cards[3].value }}</div>
+              </div>
+              <h5>SECONDS</h5>
+            </div>
+ 
           </div>
          
           
@@ -95,8 +114,6 @@ section {
   align-items: center;    
 }
 
-
-
 section .container .containerTimer{
   height: 100vh;
   width: auto;
@@ -106,14 +123,13 @@ section .container .containerTimer{
   flex-direction: column;
 }
 
-
 section .container .containerTimer .texto{
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
   height: 200px;
-  background-color: aquamarine;
+ 
 }
 section .container .containerTimer .texto h2{
     margin: 0;
@@ -123,22 +139,29 @@ section .container .containerTimer .texto h2{
     font-size: 20px;
 }
 
-
 .counter {
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
   width: 100%;
-  height: 250px;
-  background-color: beige;
+  height: 300px;
 }
+
 .counter .containerCards{
   display: flex;
 }
-
-
-
+.counter .containerCards .cardPadre{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.counter .containerCards .cardPadre h5{
+  font-family: var(--font-famly);
+  letter-spacing: 3px;
+  font-weight: 100;
+}
 .card {
   width: 120px;
   height: 120px;
@@ -154,7 +177,6 @@ section .container .containerTimer .texto h2{
   color: var(--color-text-second);
   font-size: 60px;
 }
-
 
 .bottom {
   display: flex;
@@ -175,5 +197,16 @@ section .container .containerTimer .texto h2{
   align-items: center;
   gap: 100px;
 }
+.iconos{
+  width: 100%;
+  height: 250px;
 
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.iconos img{
+  margin: 20px;
+}
 </style>

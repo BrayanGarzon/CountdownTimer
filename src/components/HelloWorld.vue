@@ -160,7 +160,10 @@ section .container .containerTimer .texto h2{
 .counter .containerCards .cardPadre h5{
   font-family: var(--font-famly);
   letter-spacing: 3px;
-  font-weight: 100;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
 }
 .card {
   width: 120px;
@@ -208,5 +211,34 @@ section .container .containerTimer .texto h2{
 
 .iconos img{
   margin: 20px;
+}
+
+
+/* CODE PANTALLAS PEQUEÑAS */
+@media (min-width: 375px) and (max-width: 470px){
+  section .container .containerTimer .texto{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    
+  }
+  section .container .containerTimer .texto h2{
+    font-size: 20px;
+    text-align: center;
+  }
+  .card{
+    width: 55px;
+    height: 55px;
+    font-size: 40px;
+  }
+  .counter .containerCards .cardPadre h5{
+    font-size: 10px;
+  }
+
+  .counter{
+    height: 200px;
+  }
+  
 }
 </style>

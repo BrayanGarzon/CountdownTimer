@@ -2,12 +2,12 @@
 export default {
   data() {
     return {
-      targetDate: new Date("2023-12-31 00:00:00"), // Cambia esta fecha a tu fecha objetivo
+      targetDate: new Date("2023-12-20 00:00:00"),
       cards: [
-        { value: 0, text: "DAYS", marginLeft: "30px" },
-        { value: 0, text: "HOURS", marginLeft: "px" },
-        { value: 0, text: "MINUTES", marginLeft: "0px" },
-        { value: 0, text: "SECONDS", marginLeft: "0px" },
+        { value: 0, text: "DAYS" },
+        { value: 0, text: "HOURS" },
+        { value: 0, text: "MINUTES" },
+        { value: 0, text: "SECONDS" },
       ],
     };
   },
@@ -16,24 +16,24 @@ export default {
       const now = new Date();
       const timeDiff = this.targetDate - now;
       const totalSeconds = Math.floor(timeDiff / 1000);
-      
+
       // Calcular días, horas, minutos y segundos
       const days = Math.floor(totalSeconds / 86400);
       const hours = Math.floor((totalSeconds % 86400) / 3600);
       const minutes = Math.floor((totalSeconds % 3600) / 60);
       const seconds = totalSeconds % 60;
 
-      // Actualizar los valores en las tarjetas
-      this.cards[0].value = days;
-      this.cards[1].value = hours;
-      this.cards[2].value = minutes;
-      this.cards[3].value = seconds;
+      // Actualizar los valores en las tarjetas, formateando a dos dígitos
+      this.cards[0].value = this.formatValue(days);
+      this.cards[1].value = this.formatValue(hours);
+      this.cards[2].value = this.formatValue(minutes);
+      this.cards[3].value = this.formatValue(seconds);
+    },
+    formatValue(value) {
+      return value < 10 ? `0${value}` : value;
     },
     cardTopTransform(value) {
-      if (value < 10) {
-        return "translateY(0)";
-      }
-      return "translateY(-50px)";
+      return value < 10;
     },
   },
   mounted() {
@@ -42,6 +42,7 @@ export default {
   },
 };
 </script>
+
 
 
 
@@ -60,6 +61,10 @@ export default {
 
             <div class="cardPadre">
               <div class="card">
+                <div class="overlay-container">
+                  <div class="top-overlay red-overlay"></div>
+                  <div class="top-overlay blue-overlay"></div>
+                </div>
                 <div class="bottom">{{ cards[0].value }}</div>
               </div>
               <h5>DAYS</h5>
@@ -67,6 +72,10 @@ export default {
             
             <div class="cardPadre">
               <div class="card">
+                <div class="overlay-container">
+                  <div class="top-overlay red-overlay"></div>
+                  <div class="top-overlay blue-overlay"></div>
+                </div>
                 <div class="bottom">{{ cards[1].value }}</div>
               </div>    
               <h5>HOURS</h5>
@@ -74,6 +83,10 @@ export default {
 
             <div class="cardPadre">
               <div class="card">
+                <div class="overlay-container">
+                  <div class="top-overlay red-overlay"></div>
+                  <div class="top-overlay blue-overlay"></div>
+                </div>
                 <div class="bottom">{{ cards[2].value }}</div>
               </div>
               <h5>MINUTES</h5>
@@ -81,6 +94,10 @@ export default {
 
             <div class="cardPadre">
               <div class="card">
+                <div class="overlay-container">
+                  <div class="top-overlay red-overlay"></div>
+                  <div class="top-overlay blue-overlay"></div>
+                </div>
                 <div class="bottom">{{ cards[3].value }}</div>
               </div>
               <h5>SECONDS</h5>
@@ -167,7 +184,7 @@ section .container .containerTimer .texto h2{
 }
 .card {
   width: 120px;
-  height: 120px;
+  height: 130px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -179,6 +196,8 @@ section .container .containerTimer .texto h2{
   animation: cardSlide 1s ease-in-out;
   color: var(--color-text-second);
   font-size: 60px;
+  box-shadow: 0 8px 4px rgba(0, 0, 0, 0.4);
+  position: relative;
 }
 
 .bottom {
@@ -186,6 +205,30 @@ section .container .containerTimer .texto h2{
   justify-content: center;
   align-items: center;
   height: 100%;
+  position: relative;
+  z-index: 0;
+}
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-overlay {
+  flex: 1;
+  background-color: transparent; /* Ajusta según sea necesario */
+}
+
+.red-overlay {
+  background-color: rgba(43, 37, 48, 0.397); /* Rojo semitransparente */
+}
+
+.blue-overlay {
+  background-color: transparent; /* Azul semitransparente */
 }
 
 .counter .texCards{

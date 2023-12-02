@@ -1,0 +1,10 @@
+{
+    "name": "Countdown Timer",
+    "description": "Este proyecto es un simple Countdown Timer construido con Vue.js. Proporciona una interfaz visual atractiva y fácil de usar para contar hacia atrás desde una fecha y hora específicas.",
+    "image": "https://github.com/BrayanGarzon/CountdownTimer/blob/main/src/design/desktop-design.jpg?raw=true",
+    "frameworks": ["JavaScript", "Html", "CSS", "Vue"],
+    "url_repo": "https://github.com/BrayanGarzon/CountdownTimer.git",
+    "url_live": "https://countdown-timer-iota-lake.vercel.app/",
+    "fecha": "01/12/2023"
+  }
+  

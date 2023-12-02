@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      targetDate: new Date("2023-12-20 00:00:00"),
+      targetDate: new Date("2023-12-31 00:00:00"),
       cards: [
         { value: 0, text: "DAYS" },
         { value: 0, text: "HOURS" },
@@ -64,6 +64,8 @@ export default {
                 <div class="overlay-container">
                   <div class="top-overlay red-overlay"></div>
                   <div class="top-overlay blue-overlay"></div>
+                  <div class="circle-half left-half"></div>
+                  <div class="circle-half right-half"></div>
                 </div>
                 <div class="bottom">{{ cards[0].value }}</div>
               </div>
@@ -75,6 +77,8 @@ export default {
                 <div class="overlay-container">
                   <div class="top-overlay red-overlay"></div>
                   <div class="top-overlay blue-overlay"></div>
+                  <div class="circle-half left-half"></div>
+                  <div class="circle-half right-half"></div>
                 </div>
                 <div class="bottom">{{ cards[1].value }}</div>
               </div>    
@@ -86,6 +90,8 @@ export default {
                 <div class="overlay-container">
                   <div class="top-overlay red-overlay"></div>
                   <div class="top-overlay blue-overlay"></div>
+                  <div class="circle-half left-half"></div>
+                  <div class="circle-half right-half"></div>
                 </div>
                 <div class="bottom">{{ cards[2].value }}</div>
               </div>
@@ -97,11 +103,14 @@ export default {
                 <div class="overlay-container">
                   <div class="top-overlay red-overlay"></div>
                   <div class="top-overlay blue-overlay"></div>
+                  <div class="circle-half left-half"></div>
+                  <div class="circle-half right-half"></div>
                 </div>
                 <div class="bottom">{{ cards[3].value }}</div>
               </div>
               <h5>SECONDS</h5>
             </div>
+
  
           </div>
          
@@ -109,9 +118,10 @@ export default {
         </div>
         
         <div class="iconos">
-          <img src="/src/images/icon-facebook.svg" alt="">
-          <img src="/src/images/icon-pinterest.svg" alt="">
-          <img src="/src/images/icon-instagram.svg" alt="">
+          <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+          <a href=""><i class="fa-brands fa-pinterest"></i></a>
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+          
         </div>
       </div>
     </div>
@@ -208,27 +218,53 @@ section .container .containerTimer .texto h2{
   position: relative;
   z-index: 0;
 }
+
 .overlay-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
 }
 
 .top-overlay {
-  flex: 1;
-  background-color: transparent; /* Ajusta según sea necesario */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  z-index: 1;
 }
 
 .red-overlay {
-  background-color: rgba(43, 37, 48, 0.397); /* Rojo semitransparente */
+  background-color: rgba(43, 37, 48, 0.46);
+  border-bottom: 1px solid rgba(68, 68, 68, 0.721);
 }
 
 .blue-overlay {
-  background-color: transparent; /* Azul semitransparente */
+  background-color: transparent;
+}
+.circle-half {
+  position: absolute;
+  top: 50%;
+  width: 5%;
+  height: 7%;
+  background-color: hsla(235, 18%, 12%, 0.704);
+  overflow: hidden;
+  transform: translateY(-50%);
+  z-index: 2; /* Asegúrate de tener un z-index mayor que los overlays red y blue */
+}
+
+
+.left-half {
+  border-radius: 0 50% 50% 0;
+  left: 0;
+}
+
+.right-half {
+  border-radius: 50% 0 0 50%;
+  right: 0;
 }
 
 .counter .texCards{
@@ -251,9 +287,18 @@ section .container .containerTimer .texto h2{
   justify-content: center;
   align-items: flex-end;
 }
+.iconos a{
+  text-decoration: none;
+}
+.iconos a i{
+  color: hsl(237, 18%, 59%);
+  font-size: 30px;
+  margin: 10px;
+  cursor: pointer;
+}
 
-.iconos img{
-  margin: 20px;
+.iconos a i:hover{
+  color: hsl(345, 95%, 68%);
 }
 
 

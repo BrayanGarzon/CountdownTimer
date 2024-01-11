@@ -5,6 +5,7 @@
     "frameworks": ["JavaScript", "Html", "CSS", "Vue"],
     "url_repo": "https://github.com/BrayanGarzon/CountdownTimer.git",
     "url_live": "https://countdown-timer-iota-lake.vercel.app/",
-    "fecha": "01/12/2023"
+    "fecha": "01/12/2023",
+    "desarrollo": "true"
   }
   
